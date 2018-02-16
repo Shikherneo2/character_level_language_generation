@@ -1,21 +1,19 @@
+*Character level language generation using GANs without pre-training-----------------
 
--------------Character level language generation using GANs without pre-training-------------------------------------
+*The project is divided into the following files:------------------------------------
 
-----------The project is divided into the following files:-------------------------------------
-
-parameters.py -- All parameters of the project are defined here. Most of them are defined in argument form, so tehy can be passed in when calling a script.
-train_model.py -- Calling code for training the model.
+parameters.py -- All parameters of the project are defined here. Most of them are defined in argument form, so they can be passed in when calling a script.
+train_model.py -- Implements a simple Curriculum Learning and Variable length learning.
 text_generation.py -- Code to generate text from a trained model.
 evaluate_result.py -- Evaluate the results store by text_generation.py
-define_objevtive_function.py -- Define the objective function for the imrpoved Wassersteing GAN training.
+define_objevtive_function.py -- Define the objective function for the improved Wasserstein GAN training. Based on https://arxiv.org/abs/1704.00028, by Ishaan Gulrajani, Faruk Ahmed, Martin Arjovsky, Vincent Dumoulin, Aaron Courville
 model.py -- Generator and Discriminator definitions.
 train_a_sequence.py -- Main training code. train_model calls this for every sequence length.
-mrnn.py -- MRNN architecture for use as the RNN Cell.
-language_helpers.py -- methods to load dataset, and to extract n-gram tokens from text.
 helper_methods.py -- Save/load pickled files, load dataset wrapper code etc.
+language_helpers.py -- Taken from https://github.com/igul222/improved_wgan_training/blob/master/language_helpers.py
 
 
-----------------------------------The following packages are required:------------------------------------------
+*The following packages are required:------------------------------------------
 
 1. Python 2.7
 2. Tensorflow >= 1.1
@@ -23,7 +21,7 @@ helper_methods.py -- Save/load pickled files, load dataset wrapper code etc.
 4. Matplotlib
 
 
--------------------------------------To run----------------------------
+*To run----------------------------
 
 1. First download the sanitized NIPS dataset from : https://www.dropbox.com/s/h23e2381adwndt0/nips.zip?dl=0
 2. Place it in the dataset folder. Have a look at params.py for exact location(-DATA_DIR)
