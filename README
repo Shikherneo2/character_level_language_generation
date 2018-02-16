@@ -1,0 +1,36 @@
+
+-------------Character level language generation using GANs without pre-training-------------------------------------
+
+----------The project is divided into the following files:-------------------------------------
+
+parameters.py -- All parameters of the project are defined here. Most of them are defined in argument form, so tehy can be passed in when calling a script.
+train_model.py -- Calling code for training the model.
+text_generation.py -- Code to generate text from a trained model.
+evaluate_result.py -- Evaluate the results store by text_generation.py
+define_objevtive_function.py -- Define the objective function for the imrpoved Wassersteing GAN training.
+model.py -- Generator and Discriminator definitions.
+train_a_sequence.py -- Main training code. train_model calls this for every sequence length.
+mrnn.py -- MRNN architecture for use as the RNN Cell.
+language_helpers.py -- methods to load dataset, and to extract n-gram tokens from text.
+helper_methods.py -- Save/load pickled files, load dataset wrapper code etc.
+
+
+----------------------------------The following packages are required:------------------------------------------
+
+1. Python 2.7
+2. Tensorflow >= 1.1
+3. Scipy
+4. Matplotlib
+
+
+-------------------------------------To run----------------------------
+
+1. First download the sanitized NIPS dataset from : https://www.dropbox.com/s/h23e2381adwndt0/nips.zip?dl=0
+2. Place it in the dataset folder. Have a look at params.py for exact location(-DATA_DIR)
+3. Change any params in parameters.py
+4. Call train_model.py with appropriate parameters.(If different from parameters.py)
+5. The model will be save in logs/[model name according to current time]/seq-[sequence length]/
+6. To generate text, Call generate_text.py -CKPT_PATH=[model_path from above]/ckp -BATCH_SIZE=[length of text you want to generate]
+7. Your results will be save in output/samples.txt
+
+-----------------------------------------------------------------------------
